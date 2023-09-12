@@ -24,7 +24,6 @@ app.use(bodyParser.json())
 
 app.use(cors({
   credentials: true,
-  origin: 'https://mern-auth-al08.onrender.com',
 }));
 
 app.use(express.json());
