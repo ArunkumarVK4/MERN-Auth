@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
-
+  
 const corsOptions = {
   origin: 'http://localhost:3000',
   credentials: true, // Allow cookies to be sent with requests
