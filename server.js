@@ -23,13 +23,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 const corsOptions = {
-  origin: 'http://localhost:3000', 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204, 
+  origin: 'http://localhost:3000',
+  credentials: true, // Allow cookies to be sent with requests
 };
 
 app.use(cors(corsOptions));
+
 
 
 app.use(express.json());

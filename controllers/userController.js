@@ -11,18 +11,24 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    generateToken(res, user._id);
+    try {
+      generateToken(res, user.id);
 
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-    });
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+      });
+    } catch (error) {
+      console.error('Error generating token:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
   } else {
     res.status(401);
     throw new Error('Invalid email or password');
   }
 });
+
 
 // @desc    Register a new user
 // @route   POST /api/users
