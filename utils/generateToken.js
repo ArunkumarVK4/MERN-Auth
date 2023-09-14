@@ -15,6 +15,6 @@ const generateToken = (res, userId) => {
 
   // Log the cookies for debugging
   console.log('Cookies:', res.cookies);
-};
+}; 
 
 export default generateToken;

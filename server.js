@@ -16,6 +16,9 @@ connectDB();
 
 const app = express();
 
+app.use(cookieParser());
+
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -36,7 +39,6 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cookieParser());
 
 app.use('/api/users', userRoutes);
 
