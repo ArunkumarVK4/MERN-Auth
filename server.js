@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 const corsOptions = {
-  origin: 'https://mern-auth-al08.onrender.com',
+  origin: 'https:http://localhost:3000',
   credentials: true, // Allow cookies to be sent with requests
 };
 
