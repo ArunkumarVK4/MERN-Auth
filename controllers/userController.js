@@ -14,11 +14,16 @@ const authUser = asyncHandler(async (req, res) => {
     try {
       generateToken(res, user.id);
 
+      console.log(  res.getHeaders()
+      )
+
       res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
       });
+     
+
     } catch (error) {
       console.error('Error generating token:', error);
       res.status(500).json({ message: 'Internal server error' });

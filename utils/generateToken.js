@@ -4,7 +4,7 @@ const generateToken = (res, userId) => {
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: '30d',
   });
-  console.log(token); // Log the generated token
+  // console.log(token); // Log the generated token
 
   res.cookie('jwt', token, {
     httpOnly: true,
@@ -14,7 +14,9 @@ const generateToken = (res, userId) => {
   });
 
   // Log the cookies for debugging
-  console.log('Cookies:', res.cookies);
+  // const cookies = res.getHeaders()["set-cookie"];
+  // console.log('Cookies:', cookies);
+
 }; 
 
 export default generateToken;
