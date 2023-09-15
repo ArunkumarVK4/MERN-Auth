@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
   
 const corsOptions = {
-  origin: 'https://unique-tulumba-640d05.netlify.app',
+  origin: 'http://localhost:3000',
   credentials: true, // Allow cookies to be sent with requests
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Include PUT in the list of allowed methods
 };
