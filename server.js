@@ -16,7 +16,7 @@ connectDB();
 
 const app = express();
 
-app.use(cookieParser());
+app.use(cookieParser(process.env.JWT_SECRET));
 
 
 // parse application/x-www-form-urlencoded
@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
   
+// http://localhost:3000
 const corsOptions = {
   origin: 'https://unique-tulumba-640d05.netlify.app',
   credentials: true, // Allow cookies to be sent with requests
