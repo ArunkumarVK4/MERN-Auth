@@ -8,7 +8,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
 import cors from "cors";
 import bodyParser from 'body-parser';
-
+import todoRouter from './routes/toDoRoutes.js';
 
 const port = process.env.PORT || 5000;
 
@@ -27,7 +27,7 @@ app.use(bodyParser.json())
   
 // http://localhost:3000
 const corsOptions = {
-  origin: 'https://unique-tulumba-640d05.netlify.app',
+  origin: 'http://localhost:3000',
   credentials: true, // Allow cookies to be sent with requests
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Include PUT in the list of allowed methods
 };
@@ -42,6 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/api/users', userRoutes);
+app.use("/todo",todoRouter)
 
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
@@ -58,5 +59,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(notFound);
 app.use(errorHandler);
+
+
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
