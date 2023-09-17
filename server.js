@@ -25,9 +25,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
   
-// http://localhost:3000
+const link1 = "https://unique-tulumba-640d05.netlify.app"
+const link2 = "http://localhost:3000"
 const corsOptions = {
-  origin: 'https://unique-tulumba-640d05.netlify.app',
+  origin: {link1, link2},
   credentials: true, // Allow cookies to be sent with requests
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Include PUT in the list of allowed methods
 };
